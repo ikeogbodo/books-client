@@ -1,0 +1,35 @@
+<h3>Create Book</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input type="text" class="form-control" id="title" required [(ngModel)]="book.title" name="title">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Author ID</label>
+      <input type="text" class="form-control" id="author" required [(ngModel)]="book.authorid" name="authorid">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Publisher ID</label>
+      <input type="text" class="form-control" id="publisher" required [(ngModel)]="book.publisherid" name="publisherid">
+    </div>
+    <div class="form-group">
+      <label for="name">Published Date</label>
+      <input type="text" class="form-control" id="publisheddate" required [(ngModel)]="book.publisheddate" name="publisheddate">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Pages</label>
+      <input type="text" class="form-control" id="pages" required [(ngModel)]="book.pages" name="pages">
+    </div>
+	
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>Book is submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newBook()">Add</button> -->
+</div>

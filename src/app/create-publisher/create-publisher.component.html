@@ -1,0 +1,17 @@
+<h3>Create Publisher</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="name">Publisher Name</label>
+      <input type="text" class="form-control" id="publishername" required [(ngModel)]="publisher.publishername" name="publishername">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>Publisher is submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newBook()">Add</button> -->
+</div>

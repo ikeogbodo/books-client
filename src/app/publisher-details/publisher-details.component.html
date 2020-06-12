@@ -1,0 +1,14 @@
+<h2>Publisher Details</h2> 
+
+<hr/>
+<div *ngIf="publisher">
+  <div>
+    <label><b>Publisher ID: </b></label> {{publisher.publisherid}}
+  </div>
+  <div>
+    <label><b>Publisher Name: </b></label> {{publisher.publishername}}
+  </div>   
+</div>
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Publisher List</button><br>

@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Author Details</h2>
+  </div>
+  <hr/>
+  <div *ngIf="book">
+    <h5>
+      <label><b>Title: </b></label> {{book.bookid}}
+    </h5>
+    <h5>
+      <label><b>Title: </b></label> {{book.title}}
+    </h5>
+    <h5>
+      <label><b>Author:</b></label> {{book.authorid}}
+    </h5>
+    <h5>
+      <label><b>Publisher: </b></label> {{book.publisherid}}
+    </h5>
+    <h5>
+      <label><b>Pages: </b></label> {{book.pages}}
+    </h5>  
+  </div>
+  <br>
+  <br>
+</div>
+<div>
+  <button (click)="list()" class="btn btn-primary">Back to Book List</button><br>
+</div>

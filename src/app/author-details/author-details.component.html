@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Author Details</h2>
+  </div>
+  <hr/>
+  <div *ngIf="author">
+    <h5>
+      <label>Author ID: </label> {{author.authorid}}
+    </h5>
+    <h5>
+      <label>Author Name: </label> {{author.authorname}}
+    </h5>   
+  </div>
+  <br>
+  <br>
+</div>
+<div>
+  <button (click)="list()" class="btn btn-primary">Back to Author List</button><br>
+</div>
