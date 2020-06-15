@@ -1,35 +1,55 @@
-<h3>Create Book</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Title</label>
-      <input type="text" class="form-control" id="title" required [(ngModel)]="book.title" name="title">
-    </div>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Create Book</h2>
+  </div>
 
+  <div class="card-body">
+  <form class="form" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name">Author ID</label>
-      <input type="text" class="form-control" id="author" required [(ngModel)]="book.authorid" name="authorid">
+      <label> Book Title</label>
+      <input type="text" class="form-control" formControlName="title" id="title" required [(ngModel)]="book.title" name="title">
+      <span class="text-danger" 
+        *ngIf="(bookFormControl.title.touched || submitted) && bookFormControl.title.errors?.required">
+        Title is required
+      </span>
     </div>
-
+      <div class="form-group">
+      <label> Author ID</label>
+      <input type="text" class="form-control" formControlName="authorid" id="author" required [(ngModel)]="book.author" name="authorid">
+      <span class="text-danger" 
+        *ngIf="(bookFormControl.authorid.touched || submitted) && bookFormControl.authorid.errors?.required">
+        Aurthor Id is required
+      </span>
+      </div>
+      <div class="form-group">
+      <label> Publisher ID</label>
+      <input type="text" class="form-control" formControlName="publisherid" id="publisher" required [(ngModel)]="book.publisher" name="publisherid">
+      <span class="text-danger" 
+        *ngIf="(bookFormControl.publisherid.touched || submitted) && bookFormControl.publisherid.errors?.required">
+        Publisher Id is required
+      </span>
+      </div>
+      <div class="form-group">
+      <label> Date Published</label>
+      <input type="text" class="form-control" formControlName="publisheddate" id="publisheddate" required [(ngModel)]="book.publisheddate" name="publisheddate">
+      <span class="text-danger" 
+        *ngIf="(bookFormControl.publisheddate.touched || submitted) && bookFormControl.publisheddate.errors?.required">
+        Published date is required
+      </span>  
+      </div>  
+      <div class="form-group">
+      <label> Number of Pages</label>
+      <input type="text" class="form-control" formControlName="pages" id="pages" required [(ngModel)]="book.pages" name="pages">
+      <span class="text-danger" 
+        *ngIf="(bookFormControl.pages.touched || submitted) && bookFormControl.pages.errors?.required">
+        Number of pages is required
+      </span>                     
+      </div>
     <div class="form-group">
-      <label for="name">Publisher ID</label>
-      <input type="text" class="form-control" id="publisher" required [(ngModel)]="book.publisherid" name="publisherid">
-    </div>
-    <div class="form-group">
-      <label for="name">Published Date</label>
-      <input type="text" class="form-control" id="publisheddate" required [(ngModel)]="book.publisheddate" name="publisheddate">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Pages</label>
-      <input type="text" class="form-control" id="pages" required [(ngModel)]="book.pages" name="pages">
-    </div>
-	
-    <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>    
   </form>
 </div>
-
-<div [hidden]="!submitted">
-  <h4>Book is submitted successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newBook()">Add</button> -->
 </div>
+
+

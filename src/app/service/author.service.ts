@@ -16,13 +16,11 @@ export class AuthorService {
     return this.http.get(`${this.authorUrl}/${authorid}`);
   }
 
-  // tslint:disable-next-line:ban-types
-  createAuthor(author: Author): Observable<Object> {
+  createAuthor(author: Author): Observable<object> {
     return this.http.post(`${this.authorUrl}`, author);
   }
 
-  // tslint:disable-next-line:ban-types
-  updateAuthor(authorid: number, value: any): Observable<Object> {
+  updateAuthor(authorid: number, value: any): Observable<object> {
     return this.http.put(`${this.authorUrl}/${authorid}`, value);
   }
 

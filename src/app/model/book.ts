@@ -1,8 +1,8 @@
 export class Book {
     bookid: number;
     title: string;
-    authorid: number;
-    publisherid: number;
+    author: number;
+    publisher: number;
     publisheddate: Date;
     pages: number;
 }

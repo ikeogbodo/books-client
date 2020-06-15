@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 
 import { BookService } from '../service/book.service';
 import { Book } from '../model/book';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -13,14 +16,36 @@ import { Book } from '../model/book';
 export class CreateBookComponent implements OnInit {
 
   book: Book = new Book();
+  bookForm: FormGroup;
   submitted = false;
+  books: Observable<Book[]>;
 
-  constructor(private bookService: BookService, private router: Router) { }
+  constructor(
+    private bookService: BookService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit() {
+    this.bookForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      authorid: ['', Validators.required],
+      publisherid: ['', Validators.required],
+      publisheddate: ['', Validators.required],
+      pages: ['', Validators.required],
+    },
+    );
+    this.reloadData();
+  }
+  reloadData() {
+    this.books = this.bookService.getBooksList();
   }
 
-  newBook(): void {
+  get bookFormControl() {
+    return this.bookForm.controls;
+  }
+
+  newAuthor(): void {
     this.submitted = false;
     this.book = new Book();
   }
@@ -34,10 +59,13 @@ export class CreateBookComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.save();
+    if (this.bookForm.valid) {
+      this.save();
+    }
   }
 
   gotoList() {
+    this.reloadData();
     this.router.navigate(['/books']);
   }
 }

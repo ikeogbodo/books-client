@@ -16,13 +16,11 @@ export class PublisherService {
     return this.http.get(`${this.publisherUrl}/${publisherid}`);
   }
 
-  // tslint:disable-next-line:ban-types
-  createPublisher(publisher: Publisher): Observable<Object> {
+  createPublisher(publisher: Publisher): Observable<object> {
     return this.http.post(`${this.publisherUrl}`, publisher);
   }
 
-  // tslint:disable-next-line:ban-types
-  updatePublisher(id: number, value: any): Observable<Object> {
+  updatePublisher(id: number, value: any): Observable<object> {
     return this.http.put(`${this.publisherUrl}/${id}`, value);
   }
 

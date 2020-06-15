@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Publisher } from '../model/publisher';
 import { PublisherService } from '../service/publisher.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-publisher',
@@ -10,11 +12,29 @@ import { Router } from '@angular/router';
 })
 export class CreatePublisherComponent implements OnInit {
   publisher: Publisher = new Publisher();
+  publisherForm: FormGroup;
   submitted = false;
+  publishers: Observable<Publisher[]>;
 
-  constructor(private publisherService: PublisherService, private router: Router) { }
+  constructor(
+    private publisherService: PublisherService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit() {
+    this.publisherForm = this.formBuilder.group({
+      publishername: ['', Validators.required]
+    },
+    );
+    this.reloadData();
+  }
+  reloadData() {
+    this.publishers = this.publisherService.getPublishersList();
+  }
+
+  get publisherFormControl() {
+    return this.publisherForm.controls;
   }
 
   newPublisher(): void {
@@ -31,10 +51,13 @@ export class CreatePublisherComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.save();
+    if (this.publisherForm.valid) {
+      this.save();
+    }
   }
 
   gotoList() {
+    this.reloadData();
     this.router.navigate(['/publishers']);
   }
 }

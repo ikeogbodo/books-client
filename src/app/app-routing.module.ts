@@ -13,6 +13,7 @@ import { PublisherListComponent } from './publisher-list/publisher-list.componen
 import { CreatePublisherComponent } from './create-publisher/create-publisher.component';
 import { UpdatePublisherComponent } from './update-publisher/update-publisher.component';
 import { PublisherDetailsComponent } from './publisher-details/publisher-details.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'book', pathMatch: 'full' },

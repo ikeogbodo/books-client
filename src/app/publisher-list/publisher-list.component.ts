@@ -37,7 +37,7 @@ export class PublisherListComponent implements OnInit {
     );
   }
 
-  publisherDetails(publisherid: number) {
-    this.router.navigate(['publisherdetails', publisherid]);
+  publisherDetails(publisher: number) {
+    this.router.navigate(['publisherdetails', publisher]);
   }
 }

@@ -16,13 +16,11 @@ export class BookService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  // tslint:disable-next-line:ban-types
-  createBook(book: Book): Observable<Object> {
+  createBook(book: Book): Observable<object> {
     return this.http.post(`${this.baseUrl}`, book);
   }
 
-  // tslint:disable-next-line:ban-types
-  updateBook(id: number, value: any): Observable<Object> {
+  updateBook(id: number, value: any): Observable<object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 

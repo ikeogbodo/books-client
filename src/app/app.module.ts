@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -32,12 +32,13 @@ import { PublisherDetailsComponent } from './publisher-details/publisher-details
     UpdatePublisherComponent,
     CreatePublisherComponent,
     PublisherListComponent,
-    PublisherDetailsComponent
+    PublisherDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

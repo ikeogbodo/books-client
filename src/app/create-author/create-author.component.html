@@ -1,17 +1,22 @@
-<h3>Create Author</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Create Author</h2>
+  </div>
 
+  <div class="card-body">
+  <form class="form" [formGroup]="authorForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name">Author Name</label>
-      <input type="text" class="form-control" id="authorname" required [(ngModel)]="author.authorname" name="authorname">
+      <label> Author Name</label>
+      <input type="text" class="form-control" formControlName="authorname" id="authorname" required [(ngModel)]="author.authorname" name="authorname">
+      <span class="text-danger" 
+        *ngIf="(authorFormControl.authorname.touched || submitted) && authorFormControl.authorname.errors?.required">
+        Author name is required
+      </span>
     </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>    
   </form>
 </div>
-
-<div [hidden]="!submitted">
-  <h4>Author is submitted successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newBook()">Add</button> -->
 </div>
+
