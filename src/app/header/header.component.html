@@ -1,0 +1,18 @@
+<meta name="navibar" content="width=device-width, initial-scale=1"/>
+  <div class="topnav">
+    <a *ngIf="!loginService.isUserLoggedIn()" routerLink="signup" class="nav-link" routerLinkActive="active">Sign Up</a>
+    <a *ngIf="loginService.isUserLoggedIn()" routerLink="authors" class="nav-link" routerLinkActive="active">Author List</a>
+    <a *ngIf="loginService.isUserLoggedIn()" routerLink="addauthor" class="nav-link" routerLinkActive="active">Add Author</a>
+    <a *ngIf="loginService.isUserLoggedIn()" routerLink="publishers" class="nav-link" routerLinkActive="active">Publisher List</a>
+    <a *ngIf="loginService.isUserLoggedIn()" routerLink="addpublisher" class="nav-link" routerLinkActive="active">Add Publisher</a>
+    <a *ngIf="loginService.isUserLoggedIn()" routerLink="books" class="nav-link" routerLinkActive="active">Book List</a>
+    <a *ngIf="loginService.isUserLoggedIn()" routerLink="add" class="nav-link" routerLinkActive="active">Add Book</a>
+    <a *ngIf="!loginService.isUserLoggedIn()" routerLink="login" class="nav-link" routerLinkActive="active">Login</a>
+    <div class="topnav-right">
+      <a *ngIf="loginService.isUserLoggedIn()" routerLink="logout" class="nav-link" routerLinkActive="active">Logout</a>
+    </div>
+    </div>
+
+<div style="padding-left:16px">
+  <h2>Spring Boot Angular Project</h2>
+</div>

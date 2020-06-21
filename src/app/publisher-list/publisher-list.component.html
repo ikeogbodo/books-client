@@ -13,10 +13,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let publisher of publishers | async">
-            <td>{{publisher.publisher}}</td>
+            <td>{{publisher.publisherid}}</td>
             <td>{{publisher.publishername}}</td>
-            <td><button (click)="deletePublisher(publisher.publisher)" class="btn btn-danger">Delete</button>
-                <button (click)="publisherDetails(publisher.publisher)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            <td><button (click)="deletePublisher(publisher.publisherid)" class="btn btn-danger">Delete</button>
+                <button (click)="publisherDetails(publisher.publisherid)" class="btn btn-info" style="margin-left: 10px">Details</button>
             </td>
           </tr>
         </tbody>
