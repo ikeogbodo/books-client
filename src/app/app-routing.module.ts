@@ -13,12 +13,20 @@ import { PublisherListComponent } from './publisher-list/publisher-list.componen
 import { CreatePublisherComponent } from './create-publisher/create-publisher.component';
 import { UpdatePublisherComponent } from './update-publisher/update-publisher.component';
 import { PublisherDetailsComponent } from './publisher-details/publisher-details.component';
+
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGaurdService } from './service/auth-gaurd.service';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGaurdService] },
   { path: '', redirectTo: 'book', pathMatch: 'full' },
-  { path: 'books', component: BookListComponent },
-  { path: 'add', component: CreateBookComponent },
+  { path: 'books', component: BookListComponent, canActivate: [AuthGaurdService]},
+  { path: 'add', component: CreateBookComponent, canActivate: [AuthGaurdService]},
   { path: 'update/:bookid', component: UpdateBookComponent },
   { path: 'details/:bookid', component: BookDetailsComponent },
   { path: '', redirectTo: 'author', pathMatch: 'full' },

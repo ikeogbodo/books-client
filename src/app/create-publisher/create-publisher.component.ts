@@ -46,6 +46,7 @@ export class CreatePublisherComponent implements OnInit {
     this.publisherService.createPublisher(this.publisher)
       .subscribe(data => console.log(data), error => console.log(error));
     this.publisher = new Publisher();
+    this.reloadData();
     this.gotoList();
   }
 
@@ -57,7 +58,6 @@ export class CreatePublisherComponent implements OnInit {
   }
 
   gotoList() {
-    this.reloadData();
     this.router.navigate(['/publishers']);
   }
 }

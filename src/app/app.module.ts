@@ -17,6 +17,26 @@ import { UpdatePublisherComponent } from './update-publisher/update-publisher.co
 import { CreatePublisherComponent } from './create-publisher/create-publisher.component';
 import { PublisherListComponent } from './publisher-list/publisher-list.component';
 import { PublisherDetailsComponent } from './publisher-details/publisher-details.component';
+import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { FooterComponent } from './footer/footer.component';
+// import {MaterialModule} from '@angular/material';
+// import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule,
+  MatMenuModule,
+  MatIconModule,
+  MatButtonModule,
+  MatTableModule,
+  MatDividerModule,
+  MatProgressSpinnerModule,
+  MatInputModule,
+  MatCardModule,
+  MatSlideToggleModule,
+  MatSelectModule,
+  MatOptionModule
+} from '@angular/material';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -33,14 +53,34 @@ import { PublisherDetailsComponent } from './publisher-details/publisher-details
     CreatePublisherComponent,
     PublisherListComponent,
     PublisherDetailsComponent,
+    HeaderComponent,
+    LoginComponent,
+    LogoutComponent,
+    FooterComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
     HttpClientModule
   ],
+  exports: [
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatDividerModule,
+    MatProgressSpinnerModule,
+    MatInputModule,
+    MatCardModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatOptionModule
+  ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

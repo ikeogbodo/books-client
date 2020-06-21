@@ -6,8 +6,6 @@ import { Book } from '../model/book';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-
-
 @Component({
   selector: 'app-create-book',
   templateUrl: './create-book.component.html',
@@ -54,6 +52,7 @@ export class CreateBookComponent implements OnInit {
     this.bookService.createBook(this.book)
       .subscribe(data => console.log(data), error => console.log(error));
     this.book = new Book();
+    this.reloadData();
     this.gotoList();
   }
 
@@ -65,7 +64,6 @@ export class CreateBookComponent implements OnInit {
   }
 
   gotoList() {
-    this.reloadData();
     this.router.navigate(['/books']);
   }
 }
