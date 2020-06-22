@@ -8,7 +8,7 @@ import { Book } from '../model/book';
 })
 export class BookService {
 
-  private baseUrl = 'http://localhost:8080/books-server/books';
+  public baseUrl = 'http://localhost:8080/books-server/books';
 
   constructor(private http: HttpClient) { }
 

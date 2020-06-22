@@ -15,7 +15,7 @@
     </div>
       <div class="form-group">
       <label> Author ID</label>
-      <input type="text" class="form-control" formControlName="authorid" id="author" required [(ngModel)]="book.author" name="authorid">
+      <input type="text" class="form-control" formControlName="authorid" id="author" required [(ngModel)]="book.authorid" name="authorid">
       <span class="text-danger" 
         *ngIf="(bookFormControl.authorid.touched || submitted) && bookFormControl.authorid.errors?.required">
         Aurthor Id is required
@@ -23,7 +23,7 @@
       </div>
       <div class="form-group">
       <label> Publisher ID</label>
-      <input type="text" class="form-control" formControlName="publisherid" id="publisher" required [(ngModel)]="book.publisher" name="publisherid">
+      <input type="text" class="form-control" formControlName="publisherid" id="publisher" required [(ngModel)]="book.publisherid" name="publisherid">
       <span class="text-danger" 
         *ngIf="(bookFormControl.publisherid.touched || submitted) && bookFormControl.publisherid.errors?.required">
         Publisher Id is required
